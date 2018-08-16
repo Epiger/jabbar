@@ -8,6 +8,7 @@ namespace Jabbar {
 
         static string jabbarLo = "\r\n\r\n    ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\r\n    ░░░░░░░██░████████░████████░████████░░████████░███████░░░\r\n    ░░░░░░░██░██░░░░██░██░░░░██░██░░░░░██░██░░░░██░██░░░░██░░\r\n    ░░░░░░░██░██░░░░██░██░░░░██░██░░░░░██░██░░░░██░██░░░░██░░\r\n    ░░░░░░░██░██░░░░██░██░░░░██░██░░░░░██░██░░░░██░██░░░░██░░\r\n    ░░░░░░░██░████████░████████░████████░░████████░███████░░░\r\n    ░░░░░░░██░██░░░░██░██░░░░██░██░░░░░██░██░░░░██░██░░██░░░░\r\n    ░░░░░░░██░██░░░░██░██░░░░██░██░░░░░██░██░░░░██░██░░░██░░░\r\n    ░░███████░██░░░░██░██░░░░██░████████░░██░░░░██░██░░░░██░░\r\n    ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░";
 
+        static FileFinder fileFinder;
         static void Main(string[] args){
             if(args.Length == 0){
                 Console.WriteLine(jabbarLo);
@@ -30,9 +31,15 @@ namespace Jabbar {
             }
 
 
-            
+            fileFinder = new FileFinder($"{Directory.GetCurrentDirectory()}{Path.DirectorySeparatorChar}exJaPro");
+            //fileFinder.FindJavaFiles();
+
+            foreach(string file in fileFinder.GetAllFiles($"{Directory.GetCurrentDirectory()}{Path.DirectorySeparatorChar}exJaPro")){
+                Console.WriteLine(file);
+            }
             
 
+            
             
 
             Console.ReadKey();
