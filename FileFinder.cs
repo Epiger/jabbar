@@ -27,7 +27,9 @@ namespace Jabbar{
             return "";
         }
 
-
+        ///<summary>
+        ///IDK THis is just a test
+        ///</summary>
         public List<string> GetAllFiles(string dir){
             List<string> files = new List<string>();
             List<int> index = new List<int>();

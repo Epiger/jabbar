@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <DocumentationFile>doc\$(Configuration)\$(AssemblyName).xml</DocumentationFile>
+    <DocumentationFile>docs\$(Configuration)\$(AssemblyName).xml</DocumentationFile>
   </PropertyGroup>
 
 </Project>
