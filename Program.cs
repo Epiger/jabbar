@@ -7,8 +7,9 @@ namespace Jabbar {
     class Program{
 
         static string jabbarLo = "\r\n\r\n    ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\r\n    ░░░░░░░██░████████░████████░████████░░████████░███████░░░\r\n    ░░░░░░░██░██░░░░██░██░░░░██░██░░░░░██░██░░░░██░██░░░░██░░\r\n    ░░░░░░░██░██░░░░██░██░░░░██░██░░░░░██░██░░░░██░██░░░░██░░\r\n    ░░░░░░░██░██░░░░██░██░░░░██░██░░░░░██░██░░░░██░██░░░░██░░\r\n    ░░░░░░░██░████████░████████░████████░░████████░███████░░░\r\n    ░░░░░░░██░██░░░░██░██░░░░██░██░░░░░██░██░░░░██░██░░██░░░░\r\n    ░░░░░░░██░██░░░░██░██░░░░██░██░░░░░██░██░░░░██░██░░░██░░░\r\n    ░░███████░██░░░░██░██░░░░██░████████░░██░░░░██░██░░░░██░░\r\n    ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░";
-
+        static char sep = Path.DirectorySeparatorChar;
         static FileFinder fileFinder;
+
         static void Main(string[] args){
             if(args.Length == 0){
                 Console.WriteLine(jabbarLo);
@@ -37,6 +38,8 @@ namespace Jabbar {
                 Console.WriteLine(file);
             }
             
+            JavaFileInterpreter interpreter = new JavaFileInterpreter();
+            interpreter.Interpret($"{Directory.GetCurrentDirectory()}{sep}exJaPro{sep}src{sep}com{sep}none{sep}HelloWorld{sep}HelloWorld.java");
 
             
             
