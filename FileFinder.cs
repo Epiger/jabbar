@@ -12,19 +12,15 @@ namespace Jabbar{
         }
 
 
-        public string FindJavaFiles(){
-
-
-            foreach (var item in Directory.GetDirectories(path)){
-                Console.WriteLine(item);
+        public List<string> FindJavaFiles(){
+            List<string> javaFiles = new List<string>();
+            javaFiles = GetAllFiles(path);
+            for(int i = 0; i < javaFiles.Count; i++){
+                if(!javaFiles[i].EndsWith(".java", true, null)){
+                    javaFiles.RemoveAt(i);
+                }
             }
-            foreach (var item in Directory.GetFiles(path)){
-                Console.WriteLine(item);
-            }
-            
-            
-
-            return "";
+            return javaFiles;
         }
 
         ///<summary>

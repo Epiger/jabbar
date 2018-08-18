@@ -32,9 +32,8 @@ namespace Jabbar {
 
 
             fileFinder = new FileFinder($"{Directory.GetCurrentDirectory()}{Path.DirectorySeparatorChar}exJaPro");
-            //fileFinder.FindJavaFiles();
 
-            foreach(string file in fileFinder.GetAllFiles($"{Directory.GetCurrentDirectory()}{Path.DirectorySeparatorChar}exJaPro")){
+            foreach(string file in fileFinder.FindJavaFiles()){
                 Console.WriteLine(file);
             }
             
