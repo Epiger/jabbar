@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Jabbar.Data {
 
@@ -16,6 +17,29 @@ namespace Jabbar.Data {
 
         public void createNodeFromFile(JavaType type, int which){
 
+        }
+
+    }
+
+    public class JavaCIEAHolder {
+
+        public string content;
+        public int start;
+        public int end;
+
+        public JavaCIEAHolder(string content, int start, int end){
+            this.content = content;
+            this.start = start;
+            this.end = end;
+        }
+
+
+        public static JavaCIEAHolder getObject(string jsonObj){
+            return JsonConvert.DeserializeObject<JavaCIEAHolder>(jsonObj);
+        }
+
+        public static string getJsonObject(JavaCIEAHolder obj){
+            return JsonConvert.SerializeObject(obj);
         }
 
     }
