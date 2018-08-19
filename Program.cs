@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Collections.Generic;
 
 namespace Jabbar {
 
@@ -33,13 +34,20 @@ namespace Jabbar {
 
 
             fileFinder = new FileFinder($"{Directory.GetCurrentDirectory()}{Path.DirectorySeparatorChar}exJaPro");
-
-            foreach(string file in fileFinder.FindJavaFiles()){
+            List<string> files = fileFinder.FindJavaFiles();
+            foreach(string file in files){
                 Console.WriteLine(file);
             }
             
             JavaFileInterpreter interpreter = new JavaFileInterpreter();
-            interpreter.Interpret($"{Directory.GetCurrentDirectory()}{sep}exJaPro{sep}src{sep}com{sep}none{sep}HelloWorld{sep}HelloWorld.java");
+            //interpreter.Interpret($"{Directory.GetCurrentDirectory()}{sep}exJaPro{sep}src{sep}com{sep}none{sep}helloworld{sep}HelloWorld.java");
+            //interpreter.Interpret($"{Directory.GetCurrentDirectory()}{sep}exJaPro{sep}src{sep}com{sep}none{sep}helloworld{sep}InnerClassTest.java");
+
+            foreach(string file in files){
+                interpreter.Interpret(file);
+            }
+
+
 
             
             
