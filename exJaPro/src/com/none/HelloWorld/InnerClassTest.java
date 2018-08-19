@@ -5,6 +5,7 @@ public class InnerClassTest {
 
     public int aField = 42;
 
+    @OwAnnotation("yeahh")
     public static class InnerStaticClass {
 
         public InnerStaticClass(String msg) {
