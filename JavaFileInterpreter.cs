@@ -101,8 +101,13 @@ namespace Jabbar{
 
                 bool foundStart = false;
 
+                if(file.Substring(0, inter-1).LastIndexOf("@") > file.Substring(0, inter-1).LastIndexOf("}")){
+                    foundStart = true;
+                    start = file.Substring(0, inter-1).LastIndexOf("@");
+                }
+
                 foreach(string modi in Java.accessLevelModifiers){
-                    if(file.IndexOf(modi, inter - 30, 30) > -1){
+                    if(file.IndexOf(modi, inter - 30, 30) > -1 && !foundStart){
                         start = file.IndexOf(modi, inter - 30, 30);
                         foundStart = true;
                         break;

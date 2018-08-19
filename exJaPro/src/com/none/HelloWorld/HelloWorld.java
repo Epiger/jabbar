@@ -4,6 +4,7 @@ import javax.swing.JWindow;
 
 import com.sun.glass.ui.Size;
 
+@Deprecated
 public class HelloWorld {
 
     public static main(string[] args){
