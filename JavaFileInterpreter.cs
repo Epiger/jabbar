@@ -20,22 +20,39 @@ namespace Jabbar{
 
 
         public JavaFile Interpret(string path){
+            JavaFile jfile = new JavaFile();
+
             //Read file
             string file = ReadFile(path);
             //Package
+            Console.WriteLine("Package:");
             Console.WriteLine(GetPackage(file));
             //Imports
+            Console.WriteLine("Imports:");
             foreach(string import in GetImports(file)){
                 Console.WriteLine(import);
             }
             //Classes
+            Console.WriteLine("Classes:");
             foreach(string clas in getCIEAsByKeyword("class", path, file)){
                 Console.WriteLine(JavaCIEAHolder.getObject(clas).content);
             }
             //Interfaces
-            foreach(string clas in getCIEAsByKeyword("interface", path, file)){
+            Console.WriteLine("Interfaces:");
+            foreach(string clas in RemoveUnwantedInterfaces(getCIEAsByKeyword("interface", path, file), getCIEAsByKeyword("@interface", path, file))){
                 Console.WriteLine(JavaCIEAHolder.getObject(clas).content);
             }
+            //Enums
+            Console.WriteLine("Enums:");
+            foreach(string clas in getCIEAsByKeyword("enum", path, file)){
+                Console.WriteLine(JavaCIEAHolder.getObject(clas).content);
+            }
+            //Annotations
+            Console.WriteLine("Annotations:");
+            foreach(string clas in getCIEAsByKeyword("@interface", path, file)){
+                Console.WriteLine(JavaCIEAHolder.getObject(clas).content);
+            }
+            
 
 
 
@@ -149,6 +166,23 @@ namespace Jabbar{
 
             return cieas;
 
+        }
+
+
+        public List<string> RemoveUnwantedInterfaces(List<string> interfaces, List<string> annotations){
+            List<string> inter = new List<string>();
+            foreach(string interf in interfaces){
+                bool match = false;
+                foreach(string anno in annotations){
+                    if(JavaCIEAHolder.getObject(interf).start == JavaCIEAHolder.getObject(anno).start+1){
+                        match = true;
+                    }
+                }
+                if(!match){
+                    inter.Add(interf);
+                }
+            }
+            return inter;
         }
 
         
