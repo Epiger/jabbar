@@ -21,35 +21,42 @@ namespace Jabbar{
 
         public JavaFile Interpret(string path){
             JavaFile jfile = new JavaFile();
+            jfile.path = path;
 
             //Read file
             string file = ReadFile(path);
             //Package
             Console.WriteLine("Package:");
-            Console.WriteLine(GetPackage(file));
+            jfile.package = GetPackage(file);
+            Console.WriteLine(jfile.package);
             //Imports
             Console.WriteLine("Imports:");
-            foreach(string import in GetImports(file)){
+            jfile.imports = GetImports(file);
+            foreach(string import in jfile.imports){
                 Console.WriteLine(import);
             }
             //Classes
             Console.WriteLine("Classes:");
-            foreach(string clas in getCIEAsByKeyword("class", path, file)){
+            jfile.classes = getCIEAsByKeyword("class", path, file);
+            foreach(string clas in jfile.classes){
                 Console.WriteLine(JavaCIEAHolder.getObject(clas).content);
             }
             //Interfaces
             Console.WriteLine("Interfaces:");
-            foreach(string clas in RemoveUnwantedInterfaces(getCIEAsByKeyword("interface", path, file), getCIEAsByKeyword("@interface", path, file))){
+            jfile.annotations = getCIEAsByKeyword("@interface", path, file);
+            jfile.interfaces = RemoveUnwantedInterfaces(getCIEAsByKeyword("interface", path, file), jfile.annotations);
+            foreach(string clas in jfile.interfaces){
                 Console.WriteLine(JavaCIEAHolder.getObject(clas).content);
             }
             //Enums
             Console.WriteLine("Enums:");
-            foreach(string clas in getCIEAsByKeyword("enum", path, file)){
+            jfile.enums = getCIEAsByKeyword("enum", path, file);
+            foreach(string clas in jfile.enums){
                 Console.WriteLine(JavaCIEAHolder.getObject(clas).content);
             }
             //Annotations
             Console.WriteLine("Annotations:");
-            foreach(string clas in getCIEAsByKeyword("@interface", path, file)){
+            foreach(string clas in jfile.annotations){
                 Console.WriteLine(JavaCIEAHolder.getObject(clas).content);
             }
             
@@ -58,7 +65,7 @@ namespace Jabbar{
 
 
 
-            return null;
+            return jfile;
         }
 
         public string GetPackage(string file){
