@@ -1,4 +1,4 @@
-package com.none.HelloWorld;
+package com.none.helloworld;
 
 import javax.swing.JWindow;
 
