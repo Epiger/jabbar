@@ -2,6 +2,7 @@
 using System.IO;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using Jabbar.Data;
 
 namespace Jabbar {
 
@@ -41,11 +42,12 @@ namespace Jabbar {
             }
             
             JavaFileInterpreter interpreter = new JavaFileInterpreter();
-            //interpreter.Interpret($"{Directory.GetCurrentDirectory()}{sep}exJaPro{sep}src{sep}com{sep}none{sep}helloworld{sep}HelloWorld.java");
-            //interpreter.Interpret($"{Directory.GetCurrentDirectory()}{sep}exJaPro{sep}src{sep}com{sep}none{sep}helloworld{sep}InnerClassTest.java");
+
+            List<JavaFile> jfiles = new List<JavaFile>();
+
 
             foreach(string file in files){
-                interpreter.Interpret(file);
+                jfiles.Add(interpreter.Interpret(file));
             }
 
 

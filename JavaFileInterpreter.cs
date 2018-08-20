@@ -25,40 +25,45 @@ namespace Jabbar{
 
             //Read file
             string file = ReadFile(path);
+
             //Package
-            Console.WriteLine("Package:");
+            //Console.WriteLine("Package:");
             jfile.package = GetPackage(file);
-            Console.WriteLine(jfile.package);
+            //Console.WriteLine(jfile.package);
+
             //Imports
-            Console.WriteLine("Imports:");
+            //Console.WriteLine("Imports:");
             jfile.imports = GetImports(file);
-            foreach(string import in jfile.imports){
+            /*foreach(string import in jfile.imports){
                 Console.WriteLine(import);
-            }
+            }*/
+
             //Classes
-            Console.WriteLine("Classes:");
+            //Console.WriteLine("Classes:");
             jfile.classes = getCIEAsByKeyword("class", path, file);
-            foreach(string clas in jfile.classes){
+            /*foreach(string clas in jfile.classes){
                 Console.WriteLine(JavaCIEAHolder.getObject(clas).content);
-            }
+            }*/
+
             //Interfaces
-            Console.WriteLine("Interfaces:");
+            //Console.WriteLine("Interfaces:");
             jfile.annotations = getCIEAsByKeyword("@interface", path, file);
             jfile.interfaces = RemoveUnwantedInterfaces(getCIEAsByKeyword("interface", path, file), jfile.annotations);
-            foreach(string clas in jfile.interfaces){
+            /*foreach(string clas in jfile.interfaces){
                 Console.WriteLine(JavaCIEAHolder.getObject(clas).content);
-            }
+            }*/
+
             //Enums
-            Console.WriteLine("Enums:");
+            //Console.WriteLine("Enums:");
             jfile.enums = getCIEAsByKeyword("enum", path, file);
-            foreach(string clas in jfile.enums){
+            /*foreach(string clas in jfile.enums){
                 Console.WriteLine(JavaCIEAHolder.getObject(clas).content);
-            }
+            }*/
             //Annotations
-            Console.WriteLine("Annotations:");
-            foreach(string clas in jfile.annotations){
+            //Console.WriteLine("Annotations:");
+            /*foreach(string clas in jfile.annotations){
                 Console.WriteLine(JavaCIEAHolder.getObject(clas).content);
-            }
+            }*/
             
 
 
