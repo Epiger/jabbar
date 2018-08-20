@@ -6,4 +6,11 @@
     <DocumentationFile>docs\$(AssemblyName).xml</DocumentationFile>
   </PropertyGroup>
 
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2"/>
+  
+  </ItemGroup>
+
+
 </Project>

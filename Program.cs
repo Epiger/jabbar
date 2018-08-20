@@ -1,5 +1,8 @@
 ﻿using System;
 using System.IO;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+using Jabbar.Data;
 
 namespace Jabbar {
 
@@ -7,8 +10,9 @@ namespace Jabbar {
     class Program{
 
         static string jabbarLo = "\r\n\r\n    ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\r\n    ░░░░░░░██░████████░████████░████████░░████████░███████░░░\r\n    ░░░░░░░██░██░░░░██░██░░░░██░██░░░░░██░██░░░░██░██░░░░██░░\r\n    ░░░░░░░██░██░░░░██░██░░░░██░██░░░░░██░██░░░░██░██░░░░██░░\r\n    ░░░░░░░██░██░░░░██░██░░░░██░██░░░░░██░██░░░░██░██░░░░██░░\r\n    ░░░░░░░██░████████░████████░████████░░████████░███████░░░\r\n    ░░░░░░░██░██░░░░██░██░░░░██░██░░░░░██░██░░░░██░██░░██░░░░\r\n    ░░░░░░░██░██░░░░██░██░░░░██░██░░░░░██░██░░░░██░██░░░██░░░\r\n    ░░███████░██░░░░██░██░░░░██░████████░░██░░░░██░██░░░░██░░\r\n    ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░";
-
+        static char sep = Path.DirectorySeparatorChar;
         static FileFinder fileFinder;
+
         static void Main(string[] args){
             if(args.Length == 0){
                 Console.WriteLine(jabbarLo);
@@ -32,11 +36,24 @@ namespace Jabbar {
 
 
             fileFinder = new FileFinder($"{Directory.GetCurrentDirectory()}{Path.DirectorySeparatorChar}exJaPro");
-
-            foreach(string file in fileFinder.FindJavaFiles()){
+            List<string> files = fileFinder.FindJavaFiles();
+            foreach(string file in files){
                 Console.WriteLine(file);
             }
             
+            JavaFileInterpreter interpreter = new JavaFileInterpreter();
+
+            List<JavaFile> jfiles = new List<JavaFile>();
+
+
+            foreach(string file in files){
+                jfiles.Add(interpreter.Interpret(file));
+            }
+
+
+
+            
+
 
             
             
