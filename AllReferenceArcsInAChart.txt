@@ -1,0 +1,16 @@
+Name of Ref             |   Example
+_____________________________________________
+Class Implements        |   class HelloWorld implements Hello {
+Class Extends           |   class HelloWorld extends World {
+Inner Class of          |       class HelloWorldExt {
+Static Method           |   JsonConvert.Serialize(object)
+Static Field            |   Math.PI;
+Object Deklaration      |   Test t;
+Object Initialisation   |   t = new Test();
+Object Field Ref        |   t.magicnumber;
+Object Method Ref       |   t.test();
+Return Type Ref         |   public HelloWorld test(){
+Parameter Ref           |   public void test(HelloWorld msg){
+Generic                 |   JsonConvert.Deserialize<HelloWorld>(msg);
+Annotation              |   @ItsJustStupid("Dogshit");
+Import                  |   import tri.hard.seven;
