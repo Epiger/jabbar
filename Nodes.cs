@@ -11,8 +11,7 @@ namespace Jabbar.Graph {
 
         List<ReferenceArc> arcs = new List<ReferenceArc>();
 
-        public Node(string name, int type){
-            this.name = name;
+        public Node(int type){
             this.type = type;
         }
 
@@ -29,7 +28,7 @@ namespace Jabbar.Graph {
 
         public bool entryPoint = false;
 
-        public ClassNode(string name) : base(name, (int) NodeType.CLASS) {}
+        public ClassNode() : base((int) NodeType.CLASS) {}
 
     }
 
@@ -39,7 +38,7 @@ namespace Jabbar.Graph {
 
         public string location;
 
-        public InterfaceNode(string name) : base(name, (int) NodeType.INTERFACE) {}
+        public InterfaceNode() : base((int) NodeType.INTERFACE) {}
 
     }
 
@@ -49,7 +48,7 @@ namespace Jabbar.Graph {
 
         public string location;
 
-        public EnumNode(string name) : base(name, (int) NodeType.INTERFACE) {}
+        public EnumNode() : base((int) NodeType.INTERFACE) {}
 
     }
 
@@ -60,7 +59,7 @@ namespace Jabbar.Graph {
 
         public string location;
 
-        public AnnotationNode(string name) : base(name, (int) NodeType.INTERFACE) {}
+        public AnnotationNode() : base((int) NodeType.INTERFACE) {}
 
     }
 
