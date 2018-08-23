@@ -53,7 +53,7 @@ namespace Jabbar {
 
             //JavaClassInterpreter tests
             JavaClassInterpreter classInterpreter = new JavaClassInterpreter();
-            classInterpreter.InterpretClass(jfiles[1].classes[0], jfiles[1].package);
+            classInterpreter.InterpretClass(jfiles[2].classes[0], jfiles[2].package);
 
 
 

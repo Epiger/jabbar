@@ -9,7 +9,7 @@ namespace Jabbar.Graph {
 
         public int type;
 
-        List<ReferenceArc> arcs = new List<ReferenceArc>();
+        public List<ReferenceArc> arcs = new List<ReferenceArc>();
 
         public Node(int type){
             this.type = type;
