@@ -10,6 +10,8 @@ namespace Jabbar {
 
     public class JavaClassInterpreter {
         
+        
+        
 
         public List<Node> InterpretClass(string clas, string package){
             List<Node> nodes = new List<Node>();
@@ -29,20 +31,17 @@ namespace Jabbar {
                 Console.WriteLine(seps[seps.Count-1]);
             }while (seps[seps.Count-1] != null && seps[seps.Count-1] != "");
 
-            //Search for the class name
-            baseNode.name = GetNameAfterKeyword(seps, "class");
-            baseNode.location = baseNode.package + baseNode.name;
-            Console.WriteLine(baseNode.name);
+            //Search for the class name LETS GO FOR A NEW ATTEMPT
+            //baseNode.name = GetNameAfterKeyword(seps, "class");
+            //baseNode.location = baseNode.package + baseNode.name;
+            //Console.WriteLine(baseNode.name);
 
-            //Get inner classes
-            if(ContainsSubClass(clas)){
-                foreach(Node node in GetInnerClasses(clas, package, baseNode.name)){
-                    nodes.Add(node);
-                }
-            }
-                
 
-            return null;
+            
+
+            
+
+            return nodes;
         }
 
         //ClassName, Class implements, Class extends
@@ -59,6 +58,34 @@ namespace Jabbar {
                 }
             }
             return "";
+        }
+
+
+
+        public List<RefType> GetReferenceType(string sep, List<string> localVars){
+            List<RefType> types = new List<RefType>();
+
+            if(sep.StartsWith('@')){
+                types.Add(RefType.GENERIC_REF);
+            }else if(sep.Contains("class")){
+                types.Add(RefType.NEW_CLASS);
+                if(sep.Contains("extends")){
+                    types.Add(RefType.CLASS_EXTENDS);
+                } if(sep.Contains("implements")){
+                    types.Add(RefType.CLASS_IMPLEMENTS);
+                }
+            }else if(sep.IndexOf('.') < sep.IndexOf('(')){
+                if(localVars.Contains(sep.Split('.')[0])){
+                    if(sep.EndsWith(';')){
+                        //STOPED WORKING NEED TO THINK ABOUT THIS
+                    }
+                }
+            }
+
+            
+
+
+            return types;
         }
 
 
@@ -102,7 +129,7 @@ namespace Jabbar {
     public class ClassStreamReader {
 
         string clas = "";
-        List<char> seperators = new List<char>{'{', ';'};
+        List<char> seperators = new List<char>{'{', ';', '}'};
         int offset = 0;
 
         public void Setup(string clas, List<char> streamSeps){

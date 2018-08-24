@@ -1,8 +1,8 @@
-Name of Ref             |   Example
-_____________________________________________
-Class Implements        |   class HelloWorld implements Hello {
-Class Extends           |   class HelloWorld extends World {
-Inner Class of          |       class HelloWorldExt {
+Name of Ref             |   Example                                         Implemented by
+_____________________________________________       
+Class Implements        |   class HelloWorld implements Hello {             GetNameAfterKeyword
+Class Extends           |   class HelloWorld extends World {                GetNameAfterKeyword
+New Class               |       class HelloWorldExt {                       ?GetInnerClasses
 Static Method           |   JsonConvert.Serialize(object)
 Static Field            |   Math.PI;
 Object Deklaration      |   Test t;
@@ -13,4 +13,4 @@ Return Type Ref         |   public HelloWorld test(){
 Parameter Ref           |   public void test(HelloWorld msg){
 Generic                 |   JsonConvert.Deserialize<HelloWorld>(msg);
 Annotation              |   @ItsJustStupid("Dogshit");
-Import                  |   import tri.hard.seven;
+Import                  |   import tri.hard.seven;                          JavaFileInterpreter

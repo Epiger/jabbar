@@ -20,7 +20,7 @@ namespace Jabbar.Graph {
     public enum RefType : int{
         CLASS_IMPLEMENTS = 0,
         CLASS_EXTENDS = 1,
-        INNER_CLASS_OF = 2,
+        NEW_CLASS = 2,
         STATIC_METHOD_REF = 3,
         STATIC_FIELD_REF = 4,
         OBJECT_DEK = 5,
