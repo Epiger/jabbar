@@ -60,8 +60,7 @@ namespace Jabbar {
             return "";
         }
 
-
-
+        [Obsolete("Theese kind of Methods will be obsolete after the JavaReferenceIdentifer works fine")]
         public List<RefType> GetReferenceType(string sep, List<string> localVars){
             List<RefType> types = new List<RefType>();
 
@@ -88,7 +87,7 @@ namespace Jabbar {
             return types;
         }
 
-
+        [Obsolete("Theese kind of Methods will be obsolete after the JavaReferenceIdentifer works fine")]
         public List<Node> GetInnerClasses(string file, string package, string baseClassName){
             JavaFileInterpreter interpreter = new JavaFileInterpreter();
             List<string> clases = interpreter.getCIEAsByKeyword("class", package, file.Substring(file.IndexOf("class")+5));
@@ -98,7 +97,7 @@ namespace Jabbar {
             foreach(string classss in clases){
                 foreach(Node node in InterpretClass(classss, package)){
                     nodes.Add(node);
-                    nodes[nodes.Count-1].arcs.Add(new ReferenceArc((int)RefType.INNER_CLASS_OF, package + baseClassName));
+                    nodes[nodes.Count-1].arcs.Add(new ReferenceArc((int)RefType.NEW_CLASS, package + baseClassName));
                 }
             }
 
@@ -107,7 +106,7 @@ namespace Jabbar {
             return nodes;
         }
 
-
+        [Obsolete("Theese kind of Methods will be obsolete after the JavaReferenceIdentifer works fine")]
         public bool ContainsSubClass(string file){
             return file.IndexOf("class", file.IndexOf("class")+5) > -1;
         }

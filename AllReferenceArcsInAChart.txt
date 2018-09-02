@@ -14,3 +14,8 @@ Parameter Ref           |   public void test(HelloWorld msg){
 Generic                 |   JsonConvert.Deserialize<HelloWorld>(msg);
 Annotation              |   @ItsJustStupid("Dogshit");
 Import                  |   import tri.hard.seven;                          JavaFileInterpreter
+
+
+Object Deklaration
+
+Primitive types: boolean byte char short int long float double
