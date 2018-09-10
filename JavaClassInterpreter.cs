@@ -60,59 +60,6 @@ namespace Jabbar {
             return "";
         }
 
-        [Obsolete("Theese kind of Methods will be obsolete after the JavaReferenceIdentifer works fine")]
-        public List<RefType> GetReferenceType(string sep, List<string> localVars){
-            List<RefType> types = new List<RefType>();
-
-            if(sep.StartsWith('@')){
-                types.Add(RefType.GENERIC_REF);
-            }else if(sep.Contains("class")){
-                types.Add(RefType.NEW_CLASS);
-                if(sep.Contains("extends")){
-                    types.Add(RefType.CLASS_EXTENDS);
-                } if(sep.Contains("implements")){
-                    types.Add(RefType.CLASS_IMPLEMENTS);
-                }
-            }else if(sep.IndexOf('.') < sep.IndexOf('(')){
-                if(localVars.Contains(sep.Split('.')[0])){
-                    if(sep.EndsWith(';')){
-                        //STOPED WORKING NEED TO THINK ABOUT THIS
-                    }
-                }
-            }
-
-            
-
-
-            return types;
-        }
-
-        [Obsolete("Theese kind of Methods will be obsolete after the JavaReferenceIdentifer works fine")]
-        public List<Node> GetInnerClasses(string file, string package, string baseClassName){
-            JavaFileInterpreter interpreter = new JavaFileInterpreter();
-            List<string> clases = interpreter.getCIEAsByKeyword("class", package, file.Substring(file.IndexOf("class")+5));
-
-            List<Node> nodes = new List<Node>();
-
-            foreach(string classss in clases){
-                foreach(Node node in InterpretClass(classss, package)){
-                    nodes.Add(node);
-                    nodes[nodes.Count-1].arcs.Add(new ReferenceArc((int)RefType.NEW_CLASS, package + baseClassName));
-                }
-            }
-
-            
-
-            return nodes;
-        }
-
-        [Obsolete("Theese kind of Methods will be obsolete after the JavaReferenceIdentifer works fine")]
-        public bool ContainsSubClass(string file){
-            return file.IndexOf("class", file.IndexOf("class")+5) > -1;
-        }
-
-
-
 
         public string RemoveChar(string str, char which){
             while(str.Contains(which)){

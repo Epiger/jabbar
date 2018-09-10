@@ -57,16 +57,6 @@ namespace Jabbar {
             classInterpreter.InterpretClass(jfiles[2].classes[0], jfiles[2].package);
 
 
-            List<Node> nodess = new List<Node>();
-            ClassNode node = new ClassNode();
-            node.entryPoint = true;
-            node.name = "Main";
-            nodess.Add(node);
-            JavaReferenceIdentifier.GetDeklaration("JWindow window;", new List<string>(), nodess, 0);
-            
-
-            Console.WriteLine(nodess[0].arcs[0].target);
-            Console.WriteLine(nodess[0].arcs[0].type);
             
 
             Console.ReadKey();
