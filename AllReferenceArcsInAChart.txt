@@ -1,0 +1,21 @@
+Name of Ref             |   Example                                         Implemented by
+_____________________________________________       
+Class Implements        |   class HelloWorld implements Hello {             GetNameAfterKeyword
+Class Extends           |   class HelloWorld extends World {                GetNameAfterKeyword
+New Class               |       class HelloWorldExt {                       ?GetInnerClasses
+Static Method           |   JsonConvert.Serialize(object)
+Static Field            |   Math.PI;
+Object Deklaration      |   Test t;
+Object Initialisation   |   t = new Test();
+Object Field Ref        |   t.magicnumber;
+Object Method Ref       |   t.test();
+Return Type Ref         |   public HelloWorld test(){
+Parameter Ref           |   public void test(HelloWorld msg){
+Generic                 |   JsonConvert.Deserialize<HelloWorld>(msg);
+Annotation              |   @ItsJustStupid("Dogshit");
+Import                  |   import tri.hard.seven;                          JavaFileInterpreter
+
+
+Object Deklaration
+
+Primitive types: boolean byte char short int long float double

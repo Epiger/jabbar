@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using Jabbar.Data;
+using Jabbar.Graph;
 
 namespace Jabbar {
 
@@ -51,11 +52,11 @@ namespace Jabbar {
             }
 
 
+            //JavaClassInterpreter tests
+            JavaClassInterpreter classInterpreter = new JavaClassInterpreter();
+            classInterpreter.InterpretClass(jfiles[2].classes[0], jfiles[2].package);
 
-            
 
-
-            
             
 
             Console.ReadKey();

@@ -22,5 +22,6 @@ public class InnerClassTest {
 
     }
 
+    float something = 0;
 
 }
