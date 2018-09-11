@@ -1,10 +1,10 @@
-Name of Ref             |   Example                                         Implemented by
+Name of Ref             |   Example                                         Condition
 _____________________________________________       
-Class Implements        |   class HelloWorld implements Hello {             GetNameAfterKeyword
-Class Extends           |   class HelloWorld extends World {                GetNameAfterKeyword
-New Class               |       class HelloWorldExt {                       ?GetInnerClasses
-Static Method           |   JsonConvert.Serialize(object)
-Static Field            |   Math.PI;
+Class Implements        |   class HelloWorld implements Hello {             keyword implements + following interface name
+Class Extends           |   class HelloWorld extends World {                keyword extends + following class name
+New Class               |       class HelloWorldExt {                       class keyword + following class name
+Static Method           |   JsonConvert.Serialize(object)                   look for (), get the point -> whats before ? variable N : Static Y and no package 
+Static Field            |   Math.PI;                                        whats before point ? variable N : Static Y and no package 
 Object Deklaration      |   Test t;
 Object Initialisation   |   t = new Test();
 Object Field Ref        |   t.magicnumber;
@@ -13,7 +13,7 @@ Return Type Ref         |   public HelloWorld test(){
 Parameter Ref           |   public void test(HelloWorld msg){
 Generic                 |   JsonConvert.Deserialize<HelloWorld>(msg);
 Annotation              |   @ItsJustStupid("Dogshit");
-Import                  |   import tri.hard.seven;                          JavaFileInterpreter
+Import                  |   import tri.hard.seven;                          
 
 
 Object Deklaration

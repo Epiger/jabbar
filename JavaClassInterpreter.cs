@@ -15,10 +15,6 @@ namespace Jabbar {
 
         public List<Node> InterpretClass(string clas, string package){
             List<Node> nodes = new List<Node>();
-            
-            //Initialize the base Node
-            ClassNode baseNode = new ClassNode();
-            baseNode.package = package;
 
             //Initialize the ClassStram Reader
             ClassStreamReader csr = new ClassStreamReader();
@@ -31,13 +27,7 @@ namespace Jabbar {
                 Console.WriteLine(seps[seps.Count-1]);
             }while (seps[seps.Count-1] != null && seps[seps.Count-1] != "");
 
-            //Search for the class name LETS GO FOR A NEW ATTEMPT
-            //baseNode.name = GetNameAfterKeyword(seps, "class");
-            //baseNode.location = baseNode.package + baseNode.name;
-            //Console.WriteLine(baseNode.name);
 
-
-            
 
             
 
@@ -68,6 +58,28 @@ namespace Jabbar {
             return str;
         }
 
+
+    }
+
+    public class InterpreterPack {
+
+        public List<Node> nodes;
+        public int actualNode;
+        public List<string> seps;
+        public int actualSep;
+        public List<List<string>> vars;
+        public List<string> imports;
+        public string package;
+
+        public InterpreterPack(List<Node> nodes, int actualNode, List<string> seps, int actualSep, List<List<string>> vars, List<string> imports, string package){
+            this.nodes = nodes;
+            this.actualNode = actualNode;
+            this.seps = seps;
+            this.actualSep = actualSep;
+            this.vars = vars;
+            this.imports = imports;
+            this.package = package;
+        }
 
     }
 
