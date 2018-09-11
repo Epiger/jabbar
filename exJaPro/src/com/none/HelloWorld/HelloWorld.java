@@ -5,7 +5,7 @@ import javax.swing.JWindow;
 import com.sun.glass.ui.Size;
 
 @Deprecated
-public class HelloWorld {
+public class HelloWorld implements InterfaceTest{
 
     public static main(string[] args){
         System.out.println("HelloWorld");

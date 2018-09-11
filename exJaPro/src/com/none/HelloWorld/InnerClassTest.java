@@ -16,7 +16,7 @@ public class InnerClassTest {
 
 
 
-    private class InnerNonStaticClass {
+    private class InnerNonStaticClass extends InnerStaticClass{
 
         private int nonUsableField = 101;
 
